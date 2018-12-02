@@ -1,9 +1,8 @@
 import "./scss/main.scss";
-console.log('Hello World');
-console.log('Hello World2');
-async function fetchPost() {
 
-  console.log('hola');
-}
+let render = function (template, node) {
+    node.innerHTML = template;
+};
 
-fetchPost();
+let template = `<h1>Hello World!</h1>`;
+render(template, document.querySelector('#main'));
