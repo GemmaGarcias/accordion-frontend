@@ -1,8 +1,9 @@
-import "./scss/main.scss";
+import './scss/main.scss';
+import Accordion from './Accordion/Accordion';
 
 let render = function (template, node) {
     node.innerHTML = template;
-};
+  };
 
-let template = `<h1>Hello World!</h1>`;
+let template = new Accordion().render();
 render(template, document.querySelector('#main'));
