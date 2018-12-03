@@ -1,18 +1,31 @@
 .accordion {
-  width: 50%;
+  width: 30%;
+  @media screen and (max-width: 480px) {
+        width: 100%;
+  }
   .accordion__section {
     height: 40px;
     margin: 5px;
+    padding-left: 20px;
     line-height: 2.5;
-    color: #2e3d50;
+    color: #47586d;
+    font-weight: 900;
     cursor: pointer;
     text-transform: uppercase;
+    border: 1px solid #47586d;
+    border-radius: 8px;
+    @media screen and (max-width: 480px) {
+      text-align: center;
+    }
   }
   .accordion__section__content {
-    display: block;
+    display: none;
     color: #637c9c;
     &.active{
       display: block;
+    }
+    @media screen and (max-width: 480px) {
+      text-align: center;
     }
   }
 }
