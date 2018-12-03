@@ -20,8 +20,8 @@ class Accordion {
 
   render() {
     return `
-    <h1>Accordion JS</h1>
-    <dl>
+    <h1 class='title'>Accordion JS</h1>
+    <dl class='accordion'>
       ${data.map((dataSection, index) =>
         new Section(dataSection).render()
       ).join('')}

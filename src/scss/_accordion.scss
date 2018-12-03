@@ -1,0 +1,18 @@
+.accordion {
+  width: 50%;
+  .accordion__section {
+    height: 40px;
+    margin: 5px;
+    line-height: 2.5;
+    color: #2e3d50;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .accordion__section__content {
+    display: block;
+    color: #637c9c;
+    &.active{
+      display: block;
+    }
+  }
+}

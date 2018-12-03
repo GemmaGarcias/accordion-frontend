@@ -8,7 +8,7 @@ class Section {
   render() {
     let content = new Content(this.content).render();
     return `
-    <dt>${this.title}</dt>${content}`;
+    <dt class='accordion__section'>${this.title}</dt>${content}`;
   }
 }
 

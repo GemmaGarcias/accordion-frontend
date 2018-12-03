@@ -5,7 +5,7 @@ class Content {
 
   render () {
     return `
-      <dd>
+      <dd class='accordion__section__content'>
         <p>${this.text}</p>
       </dd>`;
   }
