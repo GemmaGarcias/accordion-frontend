@@ -17,6 +17,17 @@ const data = [
 
 class Accordion {
   // constructor() {}
+  handleClick = () => {
+    let sectionList = Array.from(document.getElementsByClassName('accordion__section'));
+    sectionList.map((section, index) => {
+      section.addEventListener('click', this.addActiveClass);
+    });
+  };
+
+  addActiveClass = (e) => {
+    let sectionSelected = e.target.nextElementSibling;
+    sectionSelected.classList.add('active');
+  };
 
   render() {
     return `
@@ -26,6 +37,9 @@ class Accordion {
         new Section(dataSection).render()
       ).join('')}
     </dl>`;
+  }
+  init(){
+    this.handleClick();
   }
 }
 
