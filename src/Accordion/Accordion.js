@@ -19,7 +19,9 @@ class Accordion {
   // constructor() {}
 
   render() {
-    return `<dl>
+    return `
+    <h1>Accordion JS</h1>
+    <dl>
       ${data.map((dataSection, index) =>
         new Section(dataSection).render()
       ).join('')}
