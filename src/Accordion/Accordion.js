@@ -17,16 +17,20 @@ const data = [
 
 class Accordion {
   // constructor() {}
-  handleClick = () => {
+  handleClickSection = () => {
     let sectionList = Array.from(document.getElementsByClassName('accordion__section'));
     sectionList.map((section, index) => {
-      section.addEventListener('click', this.addActiveClass);
+      section.addEventListener('click', this.handleToggleSection);
     });
   };
 
-  addActiveClass = (e) => {
+  handleToggleSection = (e) => {
     let sectionSelected = e.target.nextElementSibling;
-    sectionSelected.classList.add('active');
+    if (sectionSelected.classList.contains('active')) {
+      sectionSelected.classList.remove('active');
+    } else {
+      sectionSelected.classList.add('active');
+    }
   };
 
   render() {
@@ -38,8 +42,9 @@ class Accordion {
       ).join('')}
     </dl>`;
   }
-  init(){
-    this.handleClick();
+
+  init() {
+    this.handleClickSection();
   }
 }
 
