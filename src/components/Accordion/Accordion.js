@@ -3,34 +3,44 @@ import Section from '../Section/Section';
 const data = [
   {
     title: 'Section 1',
-    content: 'Content section 1',
+    content: 'Content section 1...',
   },
   {
     title: 'Section 2',
-    content: 'Content section 2',
+    content: 'Content section 2...',
   },
   {
     title: 'Section 3',
-    content: 'Content section 3',
+    content: 'Content section 3...',
   },
 ];
 
 class Accordion {
-  // constructor() {}
+  //constructor() {}
+
   handleClickSection = () => {
-    const sectionList = Array.from(document.getElementsByClassName('accordion__section'));
-    sectionList.map((section, index) => {
-      section.addEventListener('click', this.handleToggleSection);
-    });
+    const sections = this.getElementsInArray('accordion__section');
+    sections.map(section => {section.addEventListener('click', this.handleToggleSection);});
   };
 
   handleToggleSection = (e) => {
-    const sectionSelected = e.target.nextElementSibling;
-    if (sectionSelected.classList.contains('active')) {
-      sectionSelected.classList.remove('active');
-    } else {
-      sectionSelected.classList.add('active');
-    }
+    const selectedSection = e.target.nextElementSibling;
+    return selectedSection.classList.contains('active')
+      ? this.removeActiveClass(selectedSection) : this.addActiveClass(selectedSection);
+  };
+
+  removeActiveClass = section => {
+    section.classList.remove('active');
+  };
+
+  addActiveClass = async(section) => {
+    let activeSections = await this.getElementsInArray('accordion__section__content');
+    await activeSections.forEach((section, index) => {this.removeActiveClass(section);});
+    section.classList.add('active');
+  };
+
+  getElementsInArray = className => {
+    return Array.from(document.getElementsByClassName(className));
   };
 
   render() {
