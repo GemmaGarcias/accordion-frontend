@@ -7,7 +7,7 @@ class Accordion {
   // }
 
   handleEventListener = () => {
-    const sections = this.getElements('accordion__section');
+    const sections = this.getElements('accordion-section');
     sections.map(section => {section.addEventListener('click', this.handleToggleSection);});
   };
 
@@ -22,7 +22,7 @@ class Accordion {
   };
 
   addActiveClass = async(section) => {
-    let activeSections = await this.getElements('accordion__section__content');
+    let activeSections = await this.getElements('accordion-section-content');
     await activeSections.forEach((section, index) => {this.removeActiveClass(section);});
     section.classList.add('active');
   };

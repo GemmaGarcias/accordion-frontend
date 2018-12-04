@@ -3,7 +3,7 @@
   @media screen and (max-width: $break-medium) {
     width: 100%;
   }
-  .accordion__section {
+  .accordion-section {
     height: 40px;
     margin: 5px;
     padding-left: 20px;
@@ -18,7 +18,7 @@
       text-align: center;
     }
   }
-  .accordion__section__content {
+  .accordion-section-content {
     color: $light-blue;
     :nth-child(n){
       margin: 0;
