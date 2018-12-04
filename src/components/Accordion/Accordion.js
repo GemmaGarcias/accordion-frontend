@@ -6,7 +6,7 @@ class Accordion {
   //   this.data = data;
   // }
 
-  handleClickSection = () => {
+  handleEventListener = () => {
     const sections = this.getElementsInArray('accordion__section');
     sections.map(section => {section.addEventListener('click', this.handleToggleSection);});
   };
@@ -53,9 +53,10 @@ class Accordion {
     <dl class='accordion'></dl>`;
   }
 
-  init() {
-    this.createSectionElements();
-  }
+  init = async() => {
+    await this.createSectionElements();
+    await this.handleEventListener();
+  };
 }
 
 export default Accordion;
