@@ -40,17 +40,17 @@ class Accordion {
     const data = await this.handleData();
     const sections = data && data.map(
       (dataSection) => new Section(dataSection).render()).join('');
+    this.attachSectionElements(sections);
+  };
 
-      // ${data.map((dataSection, index) =>
-      //   new Section(dataSection, index).render()
-      // ).join('')}
+  attachSectionElements = (newSections) => {
+    document.getElementsByClassName('accordion')[0].innerHTML = newSections;
   };
 
   render() {
     return `
     <h1 class='title'>Accordion JS</h1>
-    <dl class='accordion'>
-    </dl>`;
+    <dl class='accordion'></dl>`;
   }
 
   init() {
