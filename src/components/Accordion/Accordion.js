@@ -1,4 +1,5 @@
 import Section from '../Section/Section';
+import { getDataFromApi } from '../../services/getDataFromApi';
 
 const data = [
   {
@@ -16,7 +17,9 @@ const data = [
 ];
 
 class Accordion {
-  //constructor() {}
+  constructor(data) {
+    this.data = data;
+  }
 
   handleClickSection = () => {
     const sections = this.getElementsInArray('accordion__section');
@@ -48,13 +51,19 @@ class Accordion {
     <h1 class='title'>Accordion JS</h1>
     <dl class='accordion'>
       ${data.map((dataSection, index) =>
-        new Section(dataSection).render()
+        new Section(dataSection, index).render()
       ).join('')}
     </dl>`;
   }
 
+  getData = () => {
+    getDataFromApi().then(console.log);
+  };
+
+
   init() {
     this.handleClickSection();
+    this.getData();
   }
 }
 
