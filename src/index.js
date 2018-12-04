@@ -1,5 +1,5 @@
 import './scss/main.scss';
-import Accordion from './Accordion/Accordion';
+import Accordion from './components/Accordion/Accordion';
 
 let render = function (template, node) {
     node.innerHTML = template.render();
@@ -7,4 +7,4 @@ let render = function (template, node) {
   };
 
 let accordion = new Accordion();
-render(accordion, document.querySelector('#main'));
+render(accordion, document.querySelector('.main'));

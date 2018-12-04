@@ -18,14 +18,14 @@ const data = [
 class Accordion {
   // constructor() {}
   handleClickSection = () => {
-    let sectionList = Array.from(document.getElementsByClassName('accordion__section'));
+    const sectionList = Array.from(document.getElementsByClassName('accordion__section'));
     sectionList.map((section, index) => {
       section.addEventListener('click', this.handleToggleSection);
     });
   };
 
   handleToggleSection = (e) => {
-    let sectionSelected = e.target.nextElementSibling;
+    const sectionSelected = e.target.nextElementSibling;
     if (sectionSelected.classList.contains('active')) {
       sectionSelected.classList.remove('active');
     } else {
