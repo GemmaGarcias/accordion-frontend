@@ -56,14 +56,15 @@ class Accordion {
     </dl>`;
   }
 
-  getData = () => {
-    getDataFromApi().then(console.log);
+  handleData = async () => {
+    const response = await getDataFromApi();
+    return response;
   };
 
 
   init() {
     this.handleClickSection();
-    this.getData();
+    this.handleData();
   }
 }
 
