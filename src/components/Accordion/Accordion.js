@@ -1,25 +1,10 @@
 import Section from '../Section/Section';
 import { getDataFromApi } from '../../services/getDataFromApi';
 
-const data = [
-  {
-    title: 'Section 1',
-    content: 'Content section 1...',
-  },
-  {
-    title: 'Section 2',
-    content: 'Content section 2...',
-  },
-  {
-    title: 'Section 3',
-    content: 'Content section 3...',
-  },
-];
-
 class Accordion {
-  constructor(data) {
-    this.data = data;
-  }
+  // constructor(data) {
+  //   this.data = data;
+  // }
 
   handleClickSection = () => {
     const sections = this.getElementsInArray('accordion__section');
@@ -46,25 +31,30 @@ class Accordion {
     return Array.from(document.getElementsByClassName(className));
   };
 
-  render() {
-    return `
-    <h1 class='title'>Accordion JS</h1>
-    <dl class='accordion'>
-      ${data.map((dataSection, index) =>
-        new Section(dataSection, index).render()
-      ).join('')}
-    </dl>`;
-  }
-
   handleData = async () => {
     const response = await getDataFromApi();
     return response;
   };
 
+  createSectionElements = async() => {
+    const data = await this.handleData();
+    const sections = data && data.map(
+      (dataSection) => new Section(dataSection).render()).join('');
+
+      // ${data.map((dataSection, index) =>
+      //   new Section(dataSection, index).render()
+      // ).join('')}
+  };
+
+  render() {
+    return `
+    <h1 class='title'>Accordion JS</h1>
+    <dl class='accordion'>
+    </dl>`;
+  }
 
   init() {
-    this.handleClickSection();
-    this.handleData();
+    this.createSectionElements();
   }
 }
 
