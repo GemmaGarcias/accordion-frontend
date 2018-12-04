@@ -1,7 +1,7 @@
 .accordion {
-  width: 30%;
+  width: 40%;
   @media screen and (max-width: 680px) {
-        width: 100%;
+    width: 100%;
   }
   .accordion__section {
     height: 40px;
@@ -33,7 +33,7 @@
     &.active{
       :nth-child(n){
         visibility: visible;
-        margin: 16px 0;
+        margin: 20px 0;
         opacity: 1;
         max-height: 60px;
       }
