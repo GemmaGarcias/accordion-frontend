@@ -1,6 +1,6 @@
 .accordion {
   width: 40%;
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: $break-medium) {
     width: 100%;
   }
   .accordion__section {
@@ -8,18 +8,18 @@
     margin: 5px;
     padding-left: 20px;
     line-height: 2.5;
-    color: #47586d;
+    color: $dark-blue;
     font-weight: 900;
     cursor: pointer;
     text-transform: uppercase;
-    border: 1px solid #47586d;
+    border: 1px solid $dark-blue;
     border-radius: 8px;
-    @media screen and (max-width: 680px) {
+    @media screen and (max-width: $break-medium) {
       text-align: center;
     }
   }
   .accordion__section__content {
-    color: #637c9c;
+    color: $light-blue;
     :nth-child(n){
       margin: 0;
       visibility: hidden;
@@ -38,7 +38,7 @@
         max-height: 60px;
       }
     }
-    @media screen and (max-width: 680px) {
+    @media screen and (max-width: $break-medium) {
       text-align: center;
     }
   }
