@@ -6,7 +6,7 @@ class Accordion {
   //   this.data = data;
   // }
 
-  handleEventListener = () => {
+  handleEventListener = async() => {
     const sections = this.getElements('accordion-section');
     sections.map(section => {section.addEventListener('click', this.handleToggleSection);});
   };
@@ -14,37 +14,33 @@ class Accordion {
   handleToggleSection = (e) => {
     const selectedSection = e.target.nextElementSibling;
     return selectedSection.classList.contains('active')
-      ? this.removeActiveClass(selectedSection) : this.addActiveClass(selectedSection);
+      ? this.handleClassFromElement(selectedSection, 'active', 'remove')
+      : this.handleActiveClass(selectedSection);
   };
 
-  removeActiveClass = section => {
-    section.classList.remove('active');
+  handleActiveClass = async(section) => {
+    let activeSections = await this.getAllElementsByClassName('accordion__section__content');
+    await activeSections.forEach(
+      (section, index) => { this.handleClassFromElement(section, 'active', 'remove');});
+    this.handleClassFromElement(section, 'active', 'add');
   };
 
-  addActiveClass = async(section) => {
-    let activeSections = await this.getElements('accordion-section-content');
-    await activeSections.forEach((section, index) => {this.removeActiveClass(section);});
-    section.classList.add('active');
+  handleClassFromElement = (element, className, method) => {
+    element.classList[method](className);
   };
 
-  getElements = className => {
+  getAllElementsByClassName = className => {
     return Array.from(document.getElementsByClassName(className));
   };
 
-  handleData = async() => {
-    const response = await getDataFromApi();
-    return response;
+  createNewSectionElements = async() => {
+    let data = await getDataFromApi();
+    return data && data.map((dtData) => new Section(dtData).render()).join('');
   };
 
-  createSectionElements = async() => {
-    const data = await this.handleData();
-    const sections = data && data.map(
-      (dataSection) => new Section(dataSection).render()).join('');
-    this.attachSectionElements(sections);
-  };
-
-  attachSectionElements = (newSections) => {
-    document.getElementsByClassName('accordion')[0].innerHTML = newSections;
+  attachSectionElementsToAccordion = async() => {
+    let sections = await this.createNewSectionElements();
+    this.getAllElementsByClassName('accordion')[0].innerHTML = sections;
   };
 
   render() {
@@ -54,7 +50,7 @@ class Accordion {
   }
 
   init = async() => {
-    await this.createSectionElements();
+    await this.attachSectionElementsToAccordion();
     await this.handleEventListener();
   };
 }
