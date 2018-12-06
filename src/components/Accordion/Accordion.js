@@ -7,7 +7,7 @@ class Accordion {
   // }
 
   handleEventListener = async() => {
-    const sections = await this.getAllElementsByClassName('accordion__section');
+    const sections = await this.getAllElementsByClassName('accordion-section');
     sections.map(section => {section.addEventListener('click', this.handleToggleSection);});
   };
 
@@ -19,7 +19,7 @@ class Accordion {
   };
 
   handleActiveClass = async(section) => {
-    let activeSections = await this.getAllElementsByClassName('accordion__section__content');
+    let activeSections = await this.getAllElementsByClassName('accordion-section-content');
     await activeSections.forEach(
       (section, index) => { this.handleClassFromElement(section, 'active', 'remove');});
     this.handleClassFromElement(section, 'active', 'add');
