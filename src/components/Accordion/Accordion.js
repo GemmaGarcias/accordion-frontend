@@ -7,7 +7,7 @@ class Accordion {
   // }
 
   handleEventListener = async() => {
-    const sections = this.getAllElementsByClassName('accordion-section');
+    const sections = await this.getAllElementsByClassName('accordion__section');
     sections.map(section => {section.addEventListener('click', this.handleToggleSection);});
   };
 
