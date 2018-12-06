@@ -1,5 +1,5 @@
 export const getDataFromApi = async () => {
-  const url = 'data.json';
+  const url = 'https://gemmagarcias.github.io/schibsted-frontend/docs/data.json';
   try {
     let res = await fetch(url);
     let data = await res.json();
