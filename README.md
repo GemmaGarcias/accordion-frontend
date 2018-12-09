@@ -30,3 +30,37 @@ Sure to follow the [SUIT](https://suitcss.github.io/) convention when working wi
 
 ### Bonus
 * Add new section with Ajax content
+---
+
+### Description
+To resolve the excercise:
+This project has been built with webpack, vanilla JS, Sass and E6. As an extra Bonus, the accordion's sections comes from an API created.
+
+[See project online!](https://gemmagarcias.github.io/schibsted-frontend/docs/)
+
+### Installation 
+* Clone this repo.
+* All dependencies have to be be installed:
+```
+$ npm install
+```
+
+### Run the server
+* To launch the project in local enviroment:
+```
+$ npm run start:dev
+```
+Project is running at http://localhost:8080/
+
+
+### To run in dev mode or debugg mode
+```
+$ npm run test
+```
+
+### Author:
+[Gemma Garcias Escudé](https://www.linkedin.com/in/gemma-garcias-e/)
+
+
+
+
