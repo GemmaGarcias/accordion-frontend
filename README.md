@@ -39,7 +39,7 @@ This project has been built with webpack, vanilla JS, Sass and E6. As an extra B
 [See project online!](https://gemmagarcias.github.io/schibsted-frontend/docs/)
 
 ### Installation 
-* Clone this repo.
+* Clone this repo on master branch.
 * All dependencies have to be be installed:
 ```
 $ npm install
