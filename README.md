@@ -34,7 +34,7 @@ Sure to follow the [SUIT](https://suitcss.github.io/) convention when working wi
 
 ### Description
 To resolve the excercise:
-The project is build with webpack, vanilla JS, Sass and E6. As an extra Bonus, the accordion's sections comes from an API created.
+This project has been built with webpack, vanilla JS, Sass and E6. As an extra Bonus, the accordion's sections comes from an API created.
 
 [See project online!](https://gemmagarcias.github.io/schibsted-frontend/docs/)
 
